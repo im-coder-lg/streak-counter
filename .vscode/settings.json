@@ -1,23 +1,24 @@
 {
-    "workbench.colorTheme": "Aura Soft Dark",
-    "workbench.iconTheme": "material-icon-theme",
-    "editor.fontLigatures": true,
-    "workbench.productIconTheme": "fluent-icons",
-    "typescript.tsdk": "./node_modules/typescript/lib",
-    "terminal.integrated.profiles.linux": {
-        "bash": {
-            "path": "bash",
-            "icon": "terminal-bash"
-        },
-        "zsh": {
-            "path": "zsh"
-        },
-        "fish": {
-            "path": "fish"
-        },
-        "tmux": {
-            "path": "tmux",
-            "icon": "terminal-tmux"
-        }
+  "workbench.colorTheme": "Aura Soft Dark",
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontLigatures": true,
+  "workbench.productIconTheme": "fluent-icons",
+  "typescript.tsdk": "./node_modules/typescript/lib",
+  "terminal.integrated.profiles.linux": {
+    "bash": {
+      "path": "bash",
+      "icon": "terminal-bash"
+    },
+    "zsh": {
+      "path": "zsh"
+    },
+    "fish": {
+      "path": "fish"
+    },
+    "tmux": {
+      "path": "tmux",
+      "icon": "terminal-tmux"
     }
+  },
+  "terminal.integrated.defaultProfile.linux": "zsh"
 }
