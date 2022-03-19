@@ -9,10 +9,10 @@ on:
   workflow_dispatch:
 
 jobs:
-  npm-publish:
+  publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
         with:
           node-version: 14
@@ -22,5 +22,4 @@ jobs:
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
-#           token: $
           access: "public"
