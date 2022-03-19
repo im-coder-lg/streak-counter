@@ -13,13 +13,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v1
         with:
-          node-version: 16
+          node-version: 14
       - run: yarn install
       - run: yarn test
       - run: yarn build
       - uses: JS-DevTools/npm-publish@v1
         with:
-          token: ${{ secrets.NPM_TOKEN }}
+          # token: ${{ secrets.NPM_TOKEN }}
+          token: $
           access: "public"
