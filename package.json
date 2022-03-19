@@ -1,6 +1,6 @@
 {
-  "name": "@im-coder-lg/streak-counter",
-  "version": "0.0.1",
+  "name": "@im-coder-lg-streak-counter",
+  "version": "0.0.2",
   "repository": {
     "type": "git",
     "url": "https://github.com/im-coder-lg/streak-counter"
