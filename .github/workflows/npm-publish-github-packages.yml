@@ -4,8 +4,8 @@
 name: Node.js Legendary Package Releaser [ GitHub Packages ]
 
 on:
-#   push:
-#     branches: [master]
+  push:
+    branches: [master]
   workflow_dispatch:
 
 jobs:
