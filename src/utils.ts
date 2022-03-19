@@ -5,7 +5,7 @@ export interface Streak {
   startDate: String;
   lastLoginDate: String;
 }
-export const KEY = 'streak';
+export const KEY = "streak";
 export function buildStreak(date: Date, overrideDefaults?: Partial<Streak>) {
   const defaultStreak = {
     currentCount: 1,
@@ -18,5 +18,27 @@ export function buildStreak(date: Date, overrideDefaults?: Partial<Streak>) {
   };
 }
 export function updateStreak(storage: Storage, streak: Streak): void {
-    storage.setItem(KEY, JSON.stringify(streak))
+  storage.setItem(KEY, JSON.stringify(streak));
+}
+
+export function assertStreakExists(
+  streakInLocalStorage: string | null
+): streakInLocalStorage is string {
+  return streakInLocalStorage !== null && streakInLocalStorage !== "";
+}
+
+export function shouldIncrementOrResetStreakCount(
+  currentDate: Date,
+  lastLoginDate: string
+): "increment" | "reset" | "none" {
+  const difference =
+    currentDate.getDate() - parseInt(lastLoginDate.split("/")[1]);
+
+  if (difference === 0) {
+    return "none";
+  }
+  if (difference === 1) {
+    return "increment";
+  }
+  return "reset";
 }

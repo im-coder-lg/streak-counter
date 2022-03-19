@@ -1,31 +1,12 @@
 import { formattedDate } from "./lib";
-import { buildStreak, Streak, KEY } from './utils'
+import {
+  buildStreak,
+  Streak,
+  KEY,
+  assertStreakExists,
+  shouldIncrementOrResetStreakCount,
+} from "./utils";
 
-function assertStreakExists(
-  streakInLocalStorage: string | null
-): streakInLocalStorage is string {
-  return streakInLocalStorage !== null && streakInLocalStorage !== "";
-}
-
-function shouldIncrementOrResetStreakCount(
-  currentDate: Date,
-  lastLoginDate: string
-): "increment" | "reset" | "none" {
-  // We get 11/5/2021
-  // so to get 5, we split on / and get the second item
-  const difference = currentDate.getDate() - parseInt(lastLoginDate.split("/")[1]);
-  
-  if (difference === 0) {
-    return "none";
-  }
-  // This means they logged in the day after the currentDate
-  if (difference === 1) {
-    return "increment";
-  }
-  // Otherwise they logged in after a day, which would
-  // break the streak
-  return "reset";
-}
 export function streakCounter(_localStorage: Storage, date: Date): Streak {
   const streakInLocalStorage = _localStorage.getItem(KEY);
   // const doesStreakExist = streakInLocalStorage !== null && streakInLocalStorage !== "";

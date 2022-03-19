@@ -1,6 +1,26 @@
 {
+  "name": "@im-coder-lg/streak-counter",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com.im-codr-lg/streak-counter"
+  },
+  "author": "LG <github.com/im-coder-lg>",
+  "license": "MIT License",
+  "type": "module",
+  "types":"./dist/index.d.ts",
+  "source": "src/index.ts",
+  "exports": {
+    "require": "./dist/index.cjs",
+    "default": "./dist/index.modern.js"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.module.js",
+  "unpkg": "./dist/index.umd.js",
   "scripts": {
-    "test": "jest",
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest",
     "fmt": "prettier --write ."
   },
   "devDependencies": {
@@ -8,6 +28,7 @@
     "@types/jsdom": "^16.2.14",
     "jest": "^27.5.1",
     "jsdom": "^19.0.0",
+    "microbundle": "^0.14.2",
     "prettier": "^2.6.0",
     "ts-jest": "^27.1.3",
     "typescript": "^4.6.0-beta"
