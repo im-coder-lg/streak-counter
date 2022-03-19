@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  npm-publish:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -19,8 +19,18 @@ jobs:
       - run: yarn install
       - run: yarn test
       - run: yarn build
-      - uses: JS-DevTools/npm-publish@v1
+  publish:
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          # token: ${{ secrets.NPM_TOKEN }}
-          token: $
-          access: "public"
+          node-version: 14
+      - name: Publish
+        run: |
+          npm config set //registry.npmjs.org/:_authToken ${NPM_TOKEN}
+          npm publish --ignore-scripts
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
