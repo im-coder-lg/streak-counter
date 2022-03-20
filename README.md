@@ -12,6 +12,6 @@ $ npm install @im-coder-lg/streak-counter
 
 ## Usage
 
-![API Implementation](./assets/api_implementation.png)
+![API Implementation](./assets/carbon.png)
 
 > TypeScript Course 2, join at https://typescriptcourse.com
